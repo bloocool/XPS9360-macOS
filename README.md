@@ -1,6 +1,6 @@
 # macOS on Dell XPS 9360
 
-This repository contains a sample configuration to run macOS (Currently Catalain `10.15.4`) on a Dell XPS 9360
+This repository contains a sample configuration to run macOS (Currently Catalina `10.15.4`) on a Dell XPS 9360
 Booting is supported using either Clover EFI or OpenCore.
 
 ## Used Hardware Configuration
@@ -45,7 +45,7 @@ Note: When using OpenCore, ensure you disable the Legacy boot ROM in the bios un
 
 ## UEFI Variables
 
-In order to run macOS successfully a number of EFI BIOS variables need to be modified. The included Clover bootloader contains an updated `DVMT.efi`, which includes a `setup_var` command to help do just that.
+To run macOS successfully several EFI BIOS variables need to be modified. The included Clover bootloader contains an updated `DVMT.efi`, which includes a `setup_var` command to help do just that.
 
 `DVMT.efi` can be launched from Clover directly by renaming it to `Shell64U.efi` in the `tools` folder.
 
@@ -59,13 +59,13 @@ The following variables need to be updated:
 
 ## Clover Configuration
 
-All Clover hotpatches are included in source DSL format in the DSDT folder.
+All Clover hotpatches are included in the source DSL format in the DSDT folder.
 If required the script `--compile-dsdt` option can be used to compile any changes to the DSL files into `./CLOVER/ACPI/patched`.
 
 ## OpenCore Configuration
 
-All OpenCore ACPI hotpatches are included in source DSL format in the DSDT folder. They are identical to the Clover ones.
-Both Clover and OpenCore use the same set of DeviceProperties, kext patches and ACPI patches.
+All OpenCore ACPI hotpatches are included in the source DSL format in the DSDT folder. They are identical to the Clover ones.
+Both Clover and OpenCore use the same set of DeviceProperties, kext patches, and ACPI patches.
 
 ## AppleHDA
 
@@ -84,11 +84,11 @@ Profiles are configured on a per display basis in the `System Preferences` -> `D
 
 ## CPU Profile
 
-In order for macOS to effectively manage the power profile of the i7-8550U processor in the Dell XPS 9630 model used here, it is necessary to include a powermanagement profile for `X86PlatformPlugin`.
+In order for macOS to effectively manage the power profile of the i7-8550U processor in the Dell XPS 9630 model used here, it is necessary to include a power management profile for `X86PlatformPlugin`.
 
 A pre-built `CPUFriend.kext` and `CPUDataProvider.kext` is included in the `kext` folder for the i7-8550U.
 
-Instructions on how to build a power mangaement profile for any other CPU types can be found here:
+Instructions on how to build a power management profile for any other CPU types can be found here:
 
 https://github.com/PMheart/CPUFriend/blob/master/Instructions.md
 
